@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             xmlns:viewModels="clr-namespace:BrownianMotionMauiApp.ViewModels"
+             x:DataType="viewModels:BrownianMotionViewModel"
+             x:Class="BrownianMotionMauiApp.Views.BrownianMotionPage"
+             BackgroundColor="{Binding ChartBackgroundColor}"
+             Title="Simulação">
+    <ScrollView Orientation="Vertical">
+            <HorizontalStackLayout>
+                <Frame BackgroundColor="Gray" 
+                       Margin="30"
+                       CornerRadius="30"
+                       BorderColor="Transparent">
+                    <micro:ChartView
+                        Chart="{Binding Model.Chart}"
+                        HeightRequest="{Binding Model.Height}"
+                        WidthRequest="{Binding Model.Width}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Fill"/>
+                </Frame>
+                
+                <VerticalStackLayout 
+                    BackgroundColor="{Binding ChartBackgroundColor}" 
+                    HeightRequest="250"
+                    Margin="30"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                <Entry Text="{Binding InitialPrice}" Margin="15" WidthRequest="250" Keyboard="Numeric" Placeholder="Preço Inicial" PlaceholderColor="LightSlateGray" TextColor="MediumPurple" BackgroundColor="White" />
+                <Entry Text="{Binding AverageVolatility }" Margin="15" WidthRequest="250" Keyboard="Numeric" Placeholder="Volatilidade Média" PlaceholderColor="LightSlateGray" TextColor="MediumPurple" BackgroundColor="White" />
+                <Entry Text="{Binding AveragePayback }" Margin="15" WidthRequest="250" Keyboard="Numeric" Placeholder="Retorno Médio" PlaceholderColor="LightSlateGray" TextColor="MediumPurple" BackgroundColor="White" />
+                <Entry Text="{Binding Days }" Margin="15" WidthRequest="250" Keyboard="Numeric" Placeholder="Tempo (dias)" PlaceholderColor="LightSlateGray" TextColor="MediumPurple" BackgroundColor="White" />
+                <Button Text="Gerar Simulação" Command="{Binding SimulationCommand}"  WidthRequest="250" BackgroundColor="MediumPurple" TextColor="White"></Button>
+                <Button Text="Limpar Gráfico" Command="{Binding ClearCommand}"  WidthRequest="250" Margin="0, 10, 0, 0" BackgroundColor="White" TextColor="MediumPurple"></Button>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </ScrollView>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             xmlns:viewModels="clr-namespace:BrownianMotionMauiApp.ViewModels"
+             x:DataType="viewModels:MainPageViewModel"
+             x:Class="BrownianMotionMauiApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <controls:SKLottieView
+                Source="dotnetbot.json"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                RepeatCount="-1"
+                HeightRequest="200"
+                WidthRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Bem vindo ao FIT Técnico do Diego Lobo"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Bem vindo ao FIT Técnico do Diego Lobo"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button
+                Text="Desafio!"
+                SemanticProperties.Hint="Desafio!"
+                Command="{Binding NavigateCommand}"
+                HorizontalOptions="Center"  />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
